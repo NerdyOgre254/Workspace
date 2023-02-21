@@ -1,0 +1,56 @@
+import java.sql.*;
+
+public class DBTest1 
+{
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException 
+    {
+        //load driver
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        //connections for datatbase
+        String url = "jdbc:mysql://localhost:3306/test1";
+        String username = "root";
+        String password = "root";
+        
+        //use these objects for querying database and processing restults
+        
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
+        
+        //query to executy
+        
+        String query = "SELECT * FROM STAFF";
+        
+        //connect to db
+        try {
+            connection = DriverManager.getConnection(url, username, password);
+            
+            if (connection != null)
+            {
+                //prepare statement
+                statement = connection.prepareStatement(query);
+                
+                //execute statement
+                results = statement.executeQuery(query);
+                
+                //process results
+                while (results.next())
+                {
+                    System.out.println(String.format("%s %s. %s",  results.getString("FirstName"), results.getString("Lastname"), results.getString("City")));
+                }
+                
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        finally
+        {
+            connection.close();
+        }
+    }
+
+}

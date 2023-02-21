@@ -1,0 +1,84 @@
+import java.util.Scanner;
+public class testingMain {
+
+    public static void main(String[] args) 
+    {
+      //create a library
+        Library testlib = new Library();
+        
+        //System.out.println(testlib.currentBooks.get(0).toString());
+        
+        //create a scanner for system.in
+        Scanner menuScan = new Scanner(System.in);
+        //show the main menu
+        showMainMenu();
+        
+        //get response
+        
+        //if 1, do add a new book method
+        
+        //if 2, do delete book method
+        
+        //if 3, do search for book method
+        
+        //if 4, do book display method
+        
+        //if 5, exit
+        menuScan.close();
+    }
+    
+    //function to show main menu
+    public static void showMainMenu()
+    {
+        System.out.println("## Welcome to the Home Library System ##\n");
+        System.out.println("Please select one of the following options:");
+        System.out.println("1. Add a new book");
+        System.out.println("2. Delete a book");
+        System.out.println("3. Search for a book");
+        System.out.println("4. Display all books");
+        System.out.println("5. Exit");
+    }
+    
+    //function for Add a New Book
+    public static Book addNewBook()
+    {        
+        //make a new scanner
+        
+        //get the book title
+        String title = "";
+        //get the book author
+        String author = "";
+        //get the book year of publication
+        int year = 0;
+        //get the ISBN
+        String isbn = "";
+        //check validity of all inputs
+        
+        //print a success/fail message
+        
+        return new Book(title, author, year, isbn);
+    }
+    
+    //function for Delete a book
+    public static void removeBook()
+    {
+        //print the deletion search options (title/author/year/isbn)
+        
+        //make a scanner
+        
+        //let the user choose an option 
+        
+        //get relevant user option
+        
+        //get search term
+        
+        //if search term invalid, display message then return to higher up
+        
+        //search through the library for all books matching the search term
+        
+        //display the books in alphabetical order (Title->Author->Year) or print a message of no books returned
+        
+        
+        
+    }
+}

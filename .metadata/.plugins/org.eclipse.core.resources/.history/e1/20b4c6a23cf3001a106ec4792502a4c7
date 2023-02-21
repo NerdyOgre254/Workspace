@@ -1,0 +1,9 @@
+
+public class testingMain {
+
+    public static void main(String[] args) 
+    {
+        ISBNFormatError testversion = new ISBNFormatError(1123456789);
+    }
+
+}

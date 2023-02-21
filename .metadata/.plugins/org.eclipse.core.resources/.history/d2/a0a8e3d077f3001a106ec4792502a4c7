@@ -1,0 +1,49 @@
+
+public class ISBNFormatError 
+{
+    public final int ISBNLENGTH = 10;
+    
+    public ISBNFormatError(String isbn)
+    {
+        if (isCorrectLength(isbn) && isNumericOnly(isbn))
+        {
+            System.out.println("valid ISBN");
+        }
+        else if (!isCorrectLength(isbn) && isNumericOnly(isbn))
+        {
+            System.out.println("invalid ISBN, incorrect length");
+        }
+        else if (isCorrectLength(isbn) && !isNumericOnly(isbn))
+        {
+            System.out.println("invalid ISBN, numbers only");
+        }
+        else if (!isCorrectLength(isbn) && !isNumericOnly(isbn))
+        {
+            System.out.println("invalid ISBN, incorrect length and numbers only");
+        }
+    }
+    
+    public boolean isCorrectLength(String isbn)
+    {
+        if (isbn.length() == ISBNLENGTH)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean isNumericOnly(String isbn)
+    {
+        if (isbn.matches("[0-9]+"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

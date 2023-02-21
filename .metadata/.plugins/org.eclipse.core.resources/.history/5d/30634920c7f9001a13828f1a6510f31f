@@ -1,0 +1,154 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+
+public class FXTestingMain extends Application
+{
+    private ArrayList<Circle> circleList = new ArrayList<Circle>();
+    private ArrayList<Point> pointList = new ArrayList<Point>();
+    private Text pointText = new Text();
+    private double stageWidth;
+    private double stageHeight;
+    private Pane circlePane;
+    private StackPane textPane;
+    private Rectangle bgRect;
+    private VBox paneBox;
+    private Scene mainScene;
+    private Circle tempcircle;
+    
+    @Override
+    public void start(Stage primaryStage)
+    {        
+        stageWidth = 1280;
+        stageHeight = 900;
+        circlePane = new Pane();
+        textPane = new StackPane();
+        bgRect = new Rectangle(stageWidth, stageHeight, Color.ANTIQUEWHITE);
+        pointList = getPointsFromFile("points.txt");
+        pointText.setText("");
+        pointText.setFont(Font.font("Arial", 12));
+        
+        for (int i = 0; i < pointList.size(); i++)
+        {
+            circleList.add(new Circle(pointList.get(i).getX(), pointList.get(i).getY(), 5));    
+        }
+        //make all the circles the same color and fill
+        for (int i = 0; i < circleList.size(); i++)
+        {
+            circleList.get(i).setStroke(Color.BLUE);
+            circleList.get(i).setFill(Color.BLUE);
+        }
+        circlePane.getChildren().add(bgRect);
+        circlePane.getChildren().addAll(circleList);
+        textPane.getChildren().add(pointText);
+        
+        paneBox = new VBox(circlePane, textPane);
+        
+        for (int i = 0; i < circleList.size(); i++)
+        {
+            circleList.get(i).setOnMouseEntered(new MouseEnterHandler());
+            circleList.get(i).setOnMouseExited(new MouseExitHandler());
+            circleList.get(i).setOnMouseClicked(new MouseClickHandler());
+        }
+        
+        mainScene = new Scene(paneBox, stageWidth, stageHeight);
+        primaryStage.setTitle("Show Points");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(mainScene);
+        primaryStage.show();
+    }
+    
+    class MouseClickHandler implements EventHandler<MouseEvent>
+    {
+        @Override
+        public void handle(MouseEvent m)
+        {
+            double x = m.getX();
+            double y = m.getY();
+            for (int i = 0; i < circleList.size(); i++)
+            {
+                if (circleList.get(i).contains(new Point2D(x, y)))
+                {
+                    tempcircle = new Circle(circleList.get(i).getCenterX(), circleList.get(i).getCenterY(), circleList.get(i).getRadius());
+                    System.out.println(tempcircle.toString());
+                }
+            }
+        }
+    }
+    
+    class MouseEnterHandler implements EventHandler<MouseEvent>
+    {
+        @Override
+        public void handle(MouseEvent m)
+        {
+            StringBuilder sb = new StringBuilder();
+            double x = m.getX();
+            double y = m.getY();
+            for (int i = 0; i < circleList.size(); i++)
+            {
+                if (circleList.get(i).contains(new Point2D(x, y)))
+                {
+                    sb.append("x=" + circleList.get(i).getCenterX() + " y=" + circleList.get(i).getCenterY());
+                    pointText.setText(sb.toString());
+                }
+            }
+            
+            
+        }
+    }
+    
+    class MouseExitHandler implements EventHandler<MouseEvent>
+    {
+        @Override
+        public void handle(MouseEvent m)
+        {
+            pointText.setText("");
+        }
+    }
+    
+    public static void main(String[] args) 
+    {        
+        Application.launch(args);
+    }
+    
+    public ArrayList<Point> getPointsFromFile(String filename)
+    {
+        ArrayList<Point> returnList = new ArrayList<Point>();
+        File targetFile = new File(filename);
+        try
+        {
+            Scanner pointScan = new Scanner(targetFile);
+            while(pointScan.hasNext()) 
+            {
+                //get the x and get the value substring, chopping off the "X=" part and the semicolon
+                String nextX = pointScan.next();
+                String tempX = nextX.substring(2, nextX.length()-1);
+                //get the y and get the value substring, chopping off the "Y=" part
+                String nextY = pointScan.next();
+                String tempY = nextY.substring(2, nextY.length());
+                returnList.add(new Point(Float.valueOf(tempX), Float.valueOf(tempY)));
+            }
+            pointScan.close();            
+        }
+        catch (FileNotFoundException fnf)
+        {
+            fnf.printStackTrace();
+        }
+        return returnList;
+    }
+}

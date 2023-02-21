@@ -1,0 +1,51 @@
+public class Book 
+{
+    private String title;
+    private String author;
+    private String year;
+    private int isbn;
+    
+    public Book(String title, String author, int year, int isbn)
+    {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.isbn = isbn;
+    }
+    
+    //getters and setters
+    public void setTitle(String newTitle)
+    {
+        
+    }
+    
+    public void setAuthor(String newAuthor)
+    {
+        
+    }
+    
+    public void setYear(String newYear)
+    {
+        
+    }
+    
+    public void setIsbn(String newIsbn)
+    {
+        
+    }
+    
+    public String getTitle()
+    {
+        return title;
+    }
+    
+    public String getAuthor()
+    {
+        return author;
+    }
+    
+    public int getYear()
+    {
+        return year;
+    }
+}

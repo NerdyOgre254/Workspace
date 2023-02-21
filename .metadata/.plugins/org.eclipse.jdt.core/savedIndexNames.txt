@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+D:\CSU 2020\202060 - Second Semester 2020\ITC206 - Programming in Java 1\Workspace\.metadata\.plugins\org.eclipse.jdt.core
+3920776045.index
+633634245.index
+169628106.index
+395608864.index
+184802364.index
+3823443547.index
+3512906632.index
+1086078976.index
+1671692264.index
+1237518913.index
+1453001829.index

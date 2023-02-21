@@ -1,0 +1,71 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class AST3FX extends Application
+{
+    //
+    private int stageWidth = 640;
+    private int stageHeight = 480;
+    @Override
+    public void start(Stage primaryStage)
+    {
+        //labels for input boxes
+        Label idLabel = new Label("ID");
+        Label lastLabel = new Label("Last Name");
+        Label firstLabel = new Label("First Name");
+        Label miLabel = new Label("MI");
+        Label addressLabel = new Label("Address");
+        Label cityLabel = new Label("City");
+        Label stateLabel = new Label("State");
+        Label phoneLabel = new Label("Telephone");
+        
+        //text fields
+        TextField idField = new TextField();
+        TextField lastField = new TextField();
+        TextField firstField = new TextField();
+        TextField miField = new TextField();
+        TextField addressField = new TextField();
+        TextField cityField = new TextField();
+        TextField stateField = new TextField();
+        TextField phoneField = new TextField();
+        
+        //Buttons
+        Button btView = new Button("View");
+        Button btInsert = new Button("Insert");
+        Button btUpdate = new Button("Update");
+        Button btClear = new Button("Clear");
+        
+        GridPane pane = new GridPane();
+        pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
+        pane.setHgap(5.5);
+        pane.setVgap(5.5);
+        
+        //nodes in pane
+        pane.add(idLabel, 0, 0);
+        pane.add(idField, 1, 0);
+        pane.add(lastLabel, 0, 1);
+        pane.add(lastField, 1, 1);
+        pane.add(firstLabel, 2, 1);
+        pane.add(firstField, 3, 1);
+        pane.add(miLabel, 4, 1);
+        pane.add(miField, 5, 1);
+        pane.add(addressLabel, 0, 2);
+        pane.add(addressField, 1, 2);
+        
+    }
+
+    public static void main(String[] args) 
+    {
+        Application.launch(args);
+
+    }
+
+}

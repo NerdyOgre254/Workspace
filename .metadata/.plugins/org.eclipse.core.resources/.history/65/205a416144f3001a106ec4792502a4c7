@@ -1,0 +1,39 @@
+
+public class testingMain {
+
+    public static void main(String[] args) 
+    {
+        Library testlib = new Library();
+        
+        System.out.println(testlib.currentBooks[0].getAuthor());
+        //create a library
+        
+        //create a scanner for system.in
+        
+        //show the main menu
+        
+        //get response
+        
+        //if 1, do add a new book method
+        
+        //if 2, do delete book method
+        
+        //if 3, do search for book method
+        
+        //if 4, do book display method
+        
+        //if 5, exit
+        
+    }
+    
+    public void showMainMenu()
+    {
+        System.out.println("## Welcome to the Home Library System ##\n");
+        System.out.println("Please select one of the following options:");
+        System.out.println("1. Add a new book");
+        System.out.println("2. Delete a book");
+        System.out.println("3. Search for a book");
+        System.out.println();
+    }
+
+}

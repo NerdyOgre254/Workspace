@@ -1,0 +1,13 @@
+import java.sql.SQLException;
+
+public class DatabaseDemo 
+{
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException 
+    {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver Loaded");
+
+    }
+
+}

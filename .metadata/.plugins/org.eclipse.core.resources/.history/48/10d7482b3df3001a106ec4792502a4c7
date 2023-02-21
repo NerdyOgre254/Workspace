@@ -1,0 +1,26 @@
+
+public class ISBNFormatError 
+{
+    public final int ISBNLENGTH = 10;
+    
+    public ISBNFormatError(String isbn)
+    {
+        //check if the string is the right length
+        System.out.println(isCorrectLength(isbn));
+        //check if the ISBN is the right format (numbers only, no letters, no special characters)
+        
+    }
+    
+    public boolean isCorrectLength(String isbn)
+    {
+        if (isbn.length() == ISBNLENGTH)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+}

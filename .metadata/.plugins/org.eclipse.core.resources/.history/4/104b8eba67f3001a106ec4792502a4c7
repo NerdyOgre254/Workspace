@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+public class Library 
+{
+    public ArrayList<Book> currentBooks;
+    
+    public Library()
+    {
+        //go through serialised file and add books to array
+        currentBooks.add(new Book("War and Peace", "Tolstoy", 1750, "0123456789"));
+    }
+}

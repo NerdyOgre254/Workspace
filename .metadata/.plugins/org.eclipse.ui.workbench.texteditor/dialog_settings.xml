@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="statement"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="results"/>
+			<item value="statement"/>
+			<item value="connection"/>
+			<item value="keepScan"/>
+			<item value="bookScan"/>
+			<item value="SCannING_COMplete"/>
+			<item value="FiX_BoOk"/>
+			<item value="BoOk_ScAnNeD"/>
+			<item value="SeT_Ui"/>
+			<item value="CuRrEnT_BoOk"/>
+			<item value="LiBrArY"/>
+			<item value="StAtE"/>
+			<item value="CoNtRoL_StAtE"/>
+			<item value="STR"/>
+			<item value="CON"/>
+		</list>
+		<list key="replacehistory">
+			<item value="dbStatement"/>
+			<item value="dbConnect"/>
+			<item value="menuScan"/>
+			<item value="keepScanner"/>
+			<item value="scanningComplete"/>
+			<item value="fixBook"/>
+			<item value="bookScanned"/>
+			<item value="setUi"/>
+			<item value="currentBook"/>
+			<item value="library"/>
+			<item value="fixState"/>
+			<item value="FixControlState"/>
+			<item value="strength"/>
+			<item value="constitution"/>
+			<item value="dexterity"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1458"/>
+		<item key="DIALOG_Y_ORIGIN" value="347"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

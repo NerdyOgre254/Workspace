@@ -1,0 +1,12 @@
+
+public class ISBNFormatError 
+{
+    public ISBNFormatError(int isbn)
+    {
+        String teststring = String.valueOf(isbn);
+        if (teststring.length() != 10)
+        {
+            System.out.print("ISBN is not correct length");
+        }
+    }
+}
